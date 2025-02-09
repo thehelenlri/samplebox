@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('https://example.com/fonts/Vazirmatn.woff2') format('woff2'),
+  url('https://example.com/fonts/Vazirmatn.woff') format('woff'),
+  url('https://example.com/fonts/Vazirmatn.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+/* Define the content container for the slides with gap between slides */
+.agencyswiper .swiper-slide {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease; /* Smooth transition for sliding */
+  gap: 10px; /* Adjust this value to control space between slides */
+
+}
+
+
+/* For the text at the bottom of each image */
+.agencyswiper .swiper-slide p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: right;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Right side menu styles */
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 1000;
+  color: #111111;
+}
+
+/* Close button for the menu */
+.close-btn {
+  font-size: 36px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: black;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Menu links */
+.side-menu ul {
+
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  padding: 10px 0;
+  text-align: left;
+}
+
+.side-menu ul li a {
+
+  color: black;
+  text-decoration: none;
+  font-size: 22px;
+  display: block;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+.side-menu ul li a:hover {
+  background-color: #575757;
+}
+
+/* When the menu is open, slide in */
+.side-menu.open {
+  width: 250px;
+}
+/* Custom class to set the size of the slides *//* Custom class to set the size of the slides */
+.custom-slide {
+  width: 333px;
+  height: 500px;
+  position: relative;
+}
+
+.overlay {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  color: #f1f1f1;
+  width: 100%;
+  opacity:0;
+  text-align: right;
+  margin-right: 4px;
+  padding-bottom: 10px;
+
+
+}
+
+.pingo:hover .overlay {
+  opacity: 1;
+  margin-top: 30px;
+  transition: .5s ease;
+
+}
+
+
+/* For larger screen sizes, hide the mobile menu button */
+@media (max-width: 768px) {
+
+
+  .side-menu {
+    width: 0;
+  }
+
+  /* When the menu is opened, make it visible */
+  .side-menu.open {
+    width: 250px;
+  }
+
+}
+@media (max-width: 500px) {
+  .container {
+    flex-direction: column-reverse; /* عکس و ناو به ترتیب معکوس و عمودی قرار می‌گیرند */
+    align-items: center;
+  }
+
+  .flex.items-center {
+    flex-direction: column-reverse; /* ثبت‌نام و جستجو به ترتیب عمودی */
+    width: 100%;
+  }
+
+  .relative {
+    width: 100%; /* جستجو کامل عرض صفحه را می‌گیرد */
+  }
+}
+@media (max-width: 500px) {
+  .flex-col {
+    flex-direction: column-reverse; /* اینجا ترتیب عکس ها تغییر می‌کند */
+  }
+
+
+  .md\:pl-8 {
+    padding-left: 0; /* حذف padding برای صفحه کوچک‌تر */
+  }
+
+
+  .mt-8 {
+    margin-top: 2rem;
+  }
+
+  .text-right {
+    text-align: center; /* برای موبایل متن را وسط چین می‌کنیم */
+  }
+
+  /* برای تنظیم دکمه */
+  .relative {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+
+/* وقتی عرض صفحه کمتر از 600px می‌شود */
+@media (max-width: 1200px) {
+  .motenave {
+    padding-left: 2000px;
+    padding-right: 2000px;
+
+  }
+}
+/* تنظیمات دکمه‌ها */
+button {
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out; /* افکت حرکت نرم */
+  border: none;
+  background-color: transparent;
+}
+
+/* حرکت دکمه به سمت راست */
+.right-move {
+  transform: translateX(100px); /* حرکت به سمت راست */
+}
+
+/* حرکت دکمه به سمت چپ */
+.left-move {
+  transform: translateX(-100px); /* حرکت به سمت چپ */
+}
+/* برای حالت غیر ریسپانسیو */
+.non-swiper-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 0;
+  gap: 10px;
+}
+
+.non-swiper-container button {
+  flex-shrink: 0;
+}
+
+/* مخفی کردن سوایپر در حالت غیر ریسپانسیو */
+.swiper-container {
+  display: none;
+}
+
+
+/* تنظیمات حالت ریسپانسیو: نمایش 3 آیتم کنار هم */
+@media (max-width: 700px) {
+  .swiper-container {
+    display: block; /* نمایش سوایپر در حالت ریسپانسیو */
+  }
+  .non-swiper-container {
+    display: none; /* مخفی کردن حالت غیر ریسپانسیو */
+  }
+}

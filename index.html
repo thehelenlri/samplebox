@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <!--  stlyes -->
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Climber</title>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2808/2808276.png" type="image/x-icon"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./swiper.bundle.min.css"/>
+  <link rel="stylesheet" href="index.css" />
+
+  <!--  scripts-->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="./swiper.bundle.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="index.js"></script>
+
+</head>
+
+<body class="bg-white">
+<header class="bg-white shadow-md">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <!-- Logo and Search -->
+    <div class="flex space-x-4">
+      <!-- Hamburger Menu for mobile -->
+      <div class="flex">
+        <button class="text-white px-4 py-2 rounded-full md:hidden" style="color: black;" onclick="toggleMenu()">&#9776;</button>
+      </div>
+      <img alt="Climber Logo" class="h-12" height="50" src="images/places/climberlogo.png" width="100"/>
+      <div class=" search relative">
+        <label>
+          <input class="search border border-gray-300 rounded-full px-4 py-2 w-64 pr-8 sm:w-[110%] sm:top-2.5 sm:left-0 sm:right-0 sm:mx-auto sm:w-[80%]" placeholder="جستجوی اماکن گردشگری، تورها..." type="text"/>
+        </label>
+        <svg class=" absolute  mb-0  right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-center item-center  sm:w-[110%] " style="color: #0e9a8a;    width: 13px; height: 13px" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+        </svg>
+      </div>
+    </div>
+    <!-- Login/Register Button -->
+    <div class="vorod flex text-justify text-sm">
+      <button class="text-white pt-2 pr-6 pb-2 pl-6 rounded-[16px]" style="background-color: #0e9a8a; ">
+        ورود / ثبت‌نام
+      </button>
+    </div>
+  </div>
+  <!-- Right Sliding Menu -->
+  <div id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">×</button>
+    <ul class="flex flex-col items-start py-4 px-6 space-y-4">
+      <li>
+        <a href="#" class="text-gray-600 hover:text-teal-500">خانه</a>
+      </li>
+      <hr />
+      <li>
+        <a href="#" class="text-gray-600 hover:text-teal-500">تورها</a>
+      </li>
+      <hr />
+      <li>
+        <a href="#" class="text-gray-600 hover:text-teal-500">نقشه</a>
+      </li>
+      <hr />
+      <li>
+        <a href="#" class="text-gray-600 hover:text-teal-500">اماکن</a>
+      </li>
+      <hr />
+      <li>
+        <a href="#" class="text-gray-600 hover:text-teal-500">گزارش‌برنامه</a>
+      </li>
+      <hr />
+      <li>
+        <a href="#" class="text-gray-600 hover:text-teal-500">تیم‌ها</a>
+      </li>
+      <hr />
+      <li>
+        <a href="#" class="text-gray-600 hover:text-teal-500">فروشگاه</a>
+      </li>
+      <hr />
+      <li>
+        <a href="#" class="text-gray-600 hover:text-teal-500">بلاگ</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Navigation bar for larger screens -->
+  <nav class="bg-white border-t border-b border-gray-200 md:block hidden mb-2">
+    <div class="container mx-auto flex justify-between md:justify-start space-x-7 md:space-x-4 py-2 ">
+      <a class="text-gray-600 hover:text-teal-500 hover:border-b-4 hover:border-teal-500" href="#">خانه</a>
+      <a></a>
+      <a class="text-gray-600 hover:text-teal-500 hover:border-b-4 rounded-sm hover:border-teal-500" href="#">تورها</a>
+      <a class="text-gray-600 hover:text-teal-500 hover:border-b-4 rounded-sm hover:border-teal-500" href="#">نقشه</a>
+      <a class="text-gray-600 hover:text-teal-500 hover:border-b-4 rounded-sm hover:border-teal-500" href="#">اماکن</a>
+      <a class="text-gray-600 hover:text-teal-500 hover:border-b-4 rounded-sm hover:border-teal-500" href="#">گزارش‌برنامه</a>
+      <a class="text-gray-600 hover:text-teal-500 hover:border-b-4 rounded-sm hover:border-teal-500" href="#">تیم‌ها</a>
+      <a class="text-gray-600 hover:text-teal-500 hover:border-b-4 rounded-sm hover:border-teal-500" href="#">فروشگاه</a>
+      <a class="text-gray-600 hover:text-teal-500 hover:border-b-4 rounded-sm hover:border-teal-500" href="#">بلاگ</a>
+    </div>
+  </nav>
+
+</header>
+
+<main class="container mx-auto mt-6" style="padding: 10px">
+  <div class="swiper header">
+    <div class="swiper-wrapper" style="display: flex;margin-bottom: auto;height: auto;width: auto;padding-bottom: 10px;">
+      <div class="swiper-slide rounded-2xl overflow-hidden relative">
+        <img alt="رشته کوه‌های البرز" class="w-full" height="600" src="images/places/header.jpg" width="1623px" style="height: 568px; border-radius: 16px"/>
+        <img src="images/Subtract.png" alt="" srcset="" style="position: absolute;bottom: 73px;right: 10px;max-width: 50px;height: 20px;"/>
+        <p class="text-gray-700" style="position: absolute;bottom: 68px;right: 16px;color: #ffffff;background-color: #42424285;margin-right: 20px;">
+          رشته کوه‌های البرز
+        </p>
+        <br />
+        <br />
+      </div>
+      <div class="swiper-slide rounded-2xl overflow-hidden relative">
+        <img alt="رشته کوه‌های البرز" class="w-full" height="600" src="images/places/header.jpg" width="1623px" style="height: 568px; border-radius: 16px"/>
+        <img src="images/Subtract.png" alt="" srcset="" style="position: absolute;bottom: 73px;right: 10px;max-width: 50px;height: 20px;"/>
+        <p class="text-gray-700" style="position: absolute;bottom: 68px;right: 16px;color: #ffffff;background-color: #42424285;margin-right: 20px;">رشته کوه‌های البرز</p>
+        <br />
+        <br />
+      </div>
+      <div class="swiper-slide rounded-2xl overflow-hidden relative">
+        <img alt="رشته کوه‌های البرز" class="w-full" height="600" src="images/places/header.jpg" width="1623px" style="height: 568px; border-radius: 16px"/>
+        <img src="images/Subtract.png" alt="" srcset="" style="position: absolute;bottom: 73px;right: 10px;max-width: 50px;height: 20px;"/>
+        <p class="text-gray-700" style="position: absolute;bottom: 68px;right: 16px;color: #ffffff;background-color: #42424285;margin-right: 20px;">
+          رشته کوه‌های البرز
+        </p>
+        <br />
+        <br />
+      </div>
+      <div class="swiper-slide rounded-2xl overflow-hidden relative">
+        <img alt="رشته کوه‌های البرز" class="w-full" height="600" src="images/places/header.jpg" width="1623px" style="height: 568px; border-radius: 16px"/>
+        <img src="images/Subtract.png" alt="" srcset="" style="position: absolute;bottom: 73px;right: 10px;max-width: 50px;height: 20px;"/>
+        <p class="text-gray-700" style="position: absolute;bottom: 68px;right: 16px;color: #ffffff;background-color: #42424285;margin-right: 20px;">
+          رشته کوه‌های البرز
+        </p>
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="bg-gray-100">
+  <div class="container mx-auto p-4">
+    <div class="bg-gray-100">
+      <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold text-right mb-4">
+          مکان‌های محبوب گردشگری
+        </h1>
+        <div class="container">
+          <!-- Swiper Wrapper (ریسپانسیو) -->
+          <div class="swiper-container overflow-x-hidden">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex flex-row-reverse " onclick="filterSelection('all')">
+                  <span class="mr-2">برترین‌ها</span>
+                  <img src="images/Frame 465.png" alt="star" class="w-4 h-4 m-1" style="height: 23px; width: 18px;" />
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button class=" bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex flex-row-reverse" onclick="filterSelection('nature')">
+                  <span class="mr-2">دریاچه</span>
+                  <img src="images/river (2).png" alt="waterfall" class="w-4 h-4 m-1" style="height: 22px; width: 23px;" />
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button class=" bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex flex-row-reverse" onclick="filterSelection('waterfalls')">
+                  <span class="mr-2">آبشار</span>
+                  <img src="images/Group 1496.png" alt="waterfall" class="w-4 h-4 m-1" style="height: 23px; width: 23px;" />
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button class=" bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex flex-row-reverse" onclick="filterSelection('mountain')" id="mountain-btn">
+                  <span class="mr-2">کوه</span>
+                  <img src="images/mountain.png" alt="mountain" class="w-4 h-4 m-1" style="height: 23px; width: 22px;" />
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button class=" bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex flex-row-reverse" onclick="filterSelection('islands')">
+                  <span class="mr-2">جزیره</span>
+                  <img src="images/Group 1610.png" alt="island" class="w-4 h-4 m-1" style="height: 23px; width: 22px;" />
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button class=" bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex flex-row-reverse" onclick="filterSelection('forest')">
+                  <span class="mr-2">جنگل</span>
+                  <img src="images/forest (1).png" alt="forest" class="w-4 h-4 m-1" style="height: 23px; width: 16px;" />
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button class=" bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex flex-row-reverse" onclick="filterSelection('canyon')">
+                  <span class="mr-2">دره</span>
+                  <img src="images/Group 1634.png" alt="canyon" class="w-4 h-4 m-1" style="height: 22px; width: 23px;" />
+                </button>
+              </div>
+              <div class="swiper-slide">
+                <button class=" bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex flex-row-reverse" onclick="filterSelection('desert')">
+                  <span class="mr-2">کویر</span>
+                  <img src="images/Group 1611.png" alt="desert" class="w-4 h-4 m-1" style="height: 22px; width: 23px;" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- نمایش به صورت افقی در حالت غیر ریسپانسیو -->
+          <div class="non-swiper-container ">
+            <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex items-center">
+              <img src="images/Frame 465.png" alt="star" class="w-4 h-4 m-1" style="height: 23px; width: 18px;"/>
+              <span>برترین‌ها</span>
+            </button>
+            <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex items-center">
+              <img src="images/river (2).png" alt="water" class="w-4 h-4 m-1" style="height: 23px; width: 22px;"/>
+              <span>دریا و دریاچه</span>
+            </button>
+            <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex items-center">
+              <img src="images/Group 1496.png" alt="waterfall" class="w-4 h-4 m-1" style="height: 23px; width: 23px;"/>
+              <span>آبشار</span>
+            </button>
+            <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex items-center">
+              <img src="images/mountain.png" alt="mountain" class="w-4 h-4 m-1" style="height: 23px; width: 22px;"/>
+              <span>کوه</span>
+            </button>
+            <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex items-center">
+              <img src="images/Group 1610.png" alt="island" class="w-4 h-4 m-1" style="height: 23px; width: 22px;"/>
+              <span>جزیره</span>
+            </button>
+            <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex items-center">
+              <img src="images/forest (1).png" alt="forest" class="w-4 h-4 m-1" style="height: 23px; width: 16px;"/>
+              <span>جنگل</span>
+            </button>
+            <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex items-center">
+              <img src="images/Group 1634.png" alt="canyon" class="w-4 h-4 m-1" style="height: 22px; width: 23px;"/>
+              <span>دره</span>
+            </button>
+            <button class="bg-white text-gray-700 px-3 py-2 rounded-full border border-gray-300 flex items-center">
+              <img src="images/Group 1611.png" alt="desert" class="w-4 h-4 m-1" style="height: 22px; width: 23px;"/>
+              <span>کویر</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper agencyswiper">
+      <div class="swiper-wrapper" style="display: flex;margin-bottom: auto;height: auto;width: auto;">
+        <div class="swiper-slide custom-slide flex-none relative aspect-auto  nature" style="height: 333px; position: relative">
+          <img alt="A scenic view of a mountain with autumn trees" class=" rounded-2xl object-cover" src="images/places/agencyswiper2.png" />
+          <p class="absolute left-0 text-white bg-black bg-opacity-50 p-2 rounded-b-lg w-full text-right m-0">
+            ترکمن صحرا/ مازندران
+          </p>
+        </div>
+        <div class="swiper-slide custom-slide flex-none relative aspect-auto  waterfall" style="height: 333px; position: relative">
+          <img alt="A scenic view of a waterfall in a forest" class=" rounded-2xl object-cover" src="images/places/agencyswiper3.png" />
+          <p class="absolute left-0 text-white bg-black bg-opacity-50 p-2 rounded-b-lg w-full text-right m-0">
+            ترکمن صحرا/ مازندران
+          </p>
+        </div>
+        <div class="swiper-slide custom-slide flex-none relative aspect-auto  nature" style="height: 333px; position: relative">
+          <img alt="A scenic view of a mountain with autumn trees" class=" rounded-2xl object-cover" src="images/places/agencyswiper2.png" />
+          <p class="absolute left-0 text-white bg-black bg-opacity-50 p-2 rounded-b-lg w-full text-right m-0">
+            ترکمن صحرا/ مازندران
+          </p>
+        </div>
+        <div class="swiper-slide custom-slide flex-none relative aspect-auto waterfall" style="height: 333px; position: relative">
+          <img alt="A scenic view of a waterfall in a forest" class=" rounded-2xl object-cover" src="images/places/agencyswiper3.png" />
+          <p class="absolute left-0 text-white bg-black bg-opacity-50 p-2 rounded-b-lg w-full text-right m-0">
+            ترکمن صحرا/ مازندران
+          </p>
+        </div>
+        <div class="swiper-slide custom-slide flex-none relative aspect-auto  mountain" style="height: 333px; position: relative">
+          <img alt="A scenic view of a mountain with autumn trees" class=" rounded-2xl object-cover" src="images/places/agencyswiper5.png" />
+          <p class="absolute left-0 text-white bg-black bg-opacity-50 p-2 rounded-b-lg w-full text-right m-0">
+            ترکمن صحرا/ مازندران
+          </p>
+        </div>
+        <div class="swiper-slide custom-slide flex-none relative aspect-auto  nature" style="height: 333px; position: relative">
+          <img alt="A scenic view of a mountain with autumn trees" class=" rounded-2xl object-cover" src="images/places/agencyswiper2.png" />
+          <p class="absolute left-0 text-white bg-black bg-opacity-50 p-2 rounded-b-lg w-full text-right m-0">
+            ترکمن صحرا/ مازندران
+          </p>
+        </div>
+        <div class="swiper-slide custom-slide flex-none relative aspect-auto  waterfall" style="height: 333px; position: relative">
+          <img alt="A scenic view of a waterfall in a forest" class=" rounded-2xl object-cover" src="images/places/agencyswiper5.png" />
+          <p class="absolute left-0 text-white bg-black bg-opacity-50 p-2 rounded-b-lg w-full text-right m-0">
+            ترکمن صحرا/ مازندران
+          </p>
+        </div>
+        <div class="swiper-slide custom-slide flex-none relative aspect-auto  mountain" style="height: 333px; position: relative">
+          <img alt="A scenic view of a mountain with autumn trees" class=" rounded-2xl object-cover" src="images/places/agencyswiper3.png" />
+          <p class="absolute left-0 text-white bg-black bg-opacity-50 p-2 rounded-b-lg w-full text-right m-0">
+            ترکمن صحرا/ مازندران
+          </p>
+        </div>
+      </div>
+        <div class=" flex justify-between items-center mt-6">
+          <div class="flex space-x-2 rtl:space-x-reverse">
+            <div id="rightButton" class="swiper-button-prev-custo">
+              <img src="images/Frame%20412%20(1).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+            </div>
+            <div id="leftButton" class="swiper-button-next-custo">
+              <img src="images/Frame 330 (2).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+            </div>
+          </div>
+          <!-- دکمه نمایش بیشتر -->
+          <button type="button">
+            <img src="images/Frame%20411.png" alt="buttonpng" style="width: 156px; height: 49px; border-radius: 16px" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="be-white">
+    <div class=" container mx-auto px-4 py-8 height: auto;width: auto;">
+      <h2 class=" text-2xl font-bold mb-6">متنوع‌ترین و بهترین تورها</h2>
+      <div class="swiper blogswiper">
+        <div class="swiper-wrapper" style="display: flex;margin-bottom: auto;height: auto;width: auto;">
+          <div class="swiper-slide max-w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-md mb-5">
+            <!-- Card 3 -->
+            <div class="flex-shrink-0 bg-white rounded-2xl shadow-md">
+              <img alt="View of a village with mountains in the background" class="w-full h-48 rounded-t-lg" height="180" src="images/places/blogswiper1.png" width="320"/>
+              <div class="absolute top-2 right-2 " >
+                <img src="images/Frame%20321%20(2).png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 64px; top: 4px"/>
+              </div>
+              <div class="bg-gray-50 p-2">
+                <h3 class="text-lg font-semibold mb-2 text-right" style="cursor: pointer">
+                  گردش در روستای کندوان
+                </h3>
+                <div class="flex justify-center">
+                  <p class=" text-sm text-gray-500 mb-2 text-right pl-6" style="cursor: pointer">آژانس مسافرتی مهاپرواز</p>
+                  <span class=" ml-1 text-sm text-gray-600 "> 3.5<i class="fas fa-star text-yellow-500"> </i></span>
+                </div>
+                <div class="flex items-center justify-between mb-2" style="cursor: pointer">
+                  <p class="text-sm text-gray-600">17 - 18 خرداد</p>
+
+                  <!-- خط جداکننده -->
+                  <div class="border-l border-gray-300 h-6 mx-4"></div> <!-- Line separator -->
+
+                  <p class="text-sm text-gray-600">تومان <span class="font-[850]"> 1,000,000</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide max-w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-md mb-5">
+            <!-- Card 4 -->
+            <div class="flex-shrink-0 bg-white rounded-2xl shadow-md">
+              <img alt="Ancient ruins on a hill" class="w-full h-48 rounded-t-lg" height="180" src="images/places/blogswiper3.png" width="320"/>
+              <div class="absolute top-2 right-2 " >
+                <img src="images/Frame%20321%20(1).png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+              </div>
+              <div class="bg-gray-50 p-2">
+                <h3 class="text-lg font-semibold mb-2 text-right" style="cursor: pointer">
+                  بازدید از دخمه‌های زرتشتیان
+                </h3>
+                <div class="flex justify-center">
+                  <p class=" text-sm text-gray-500 mb-2 text-right pl-6" style="cursor: pointer">آژانس مسافرتی مهاپرواز</p>
+                  <span class=" ml-1 text-sm text-gray-600 "> 3.5<i class="fas fa-star text-yellow-500"> </i></span>
+                </div>
+                <div class="flex items-center justify-between mb-2" style="cursor: pointer">
+                  <p class="text-sm text-gray-600">17 - 18 خرداد</p>
+                  <!-- خط جداکننده -->
+                  <div class="border-l border-gray-300 h-6 mx-4"></div> <!-- Line separator -->
+                  <p class="text-sm text-gray-600">تومان <span class="font-[850]"> 1,000,000</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide max-w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-md mb-5">
+            <!-- Card 3 -->
+            <div class="flex-shrink-0 bg-white rounded-2xl shadow-md">
+              <img alt="View of a village with mountains in the background" class="w-full h-48 rounded-t-lg" height="180" src="images/places/blogswiper2.png" width="320"/>
+              <div class="absolute top-2 right-2 " >
+                <img src="images/Frame%20321.png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+              </div>
+              <div class="bg-gray-50 p-2">
+                <h3 class="text-lg font-semibold mb-2 text-right" style="cursor: pointer">
+                  گردش در روستای کندوان
+                </h3>
+                <div class="flex justify-center">
+                  <p class=" text-sm text-gray-500 mb-2 text-right pl-6" style="cursor: pointer">آژانس مسافرتی مهاپرواز</p>
+                  <span class=" ml-1 text-sm text-gray-600 "> 3.5<i class="fas fa-star text-yellow-500"> </i></span>
+                </div>
+                <div class="flex items-center justify-between mb-2" style="cursor: pointer">
+                  <p class="text-sm text-gray-600">17 - 18 خرداد</p>
+
+                  <!-- خط جداکننده -->
+                  <div class="border-l border-gray-300 h-6 mx-4"></div> <!-- Line separator -->
+
+                  <p class="text-sm text-gray-600">تومان <span class="font-[850]"> 1,000,000</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide max-w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-md mb-5">
+            <!-- Card 4 -->
+            <div class="flex-shrink-0 bg-white rounded-2xl shadow-md">
+              <img alt="Ancient ruins on a hill" class="w-full h-48 rounded-t-lg" height="180" src="images/places/blogswiper3.png" width="320"/>
+              <div class="absolute top-2 right-2 " >
+                <img src="images/Frame%20321%20(1).png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+              </div>
+              <div class="bg-gray-50 p-2">
+                <h3 class="text-lg font-semibold mb-2 text-right" style="cursor: pointer">
+                  بازدید از دخمه‌های زرتشتیان
+                </h3>
+                <div class="flex justify-center">
+                  <p class=" text-sm text-gray-500 mb-2 text-right pl-6" style="cursor: pointer">آژانس مسافرتی مهاپرواز</p>
+                  <span class=" ml-1 text-sm text-gray-600 "> 3.5<i class="fas fa-star text-yellow-500"> </i></span>
+                </div>
+                <div class="flex items-center justify-between mb-2" style="cursor: pointer">
+                  <p class="text-sm text-gray-600">17 - 18 خرداد</p>
+                  <!-- خط جداکننده -->
+                  <div class="border-l border-gray-300 h-6 mx-4"></div> <!-- Line separator -->
+                  <p class="text-sm text-gray-600">تومان <span class="font-[850]"> 1,000,000</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide max-w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-md mb-5">
+            <!-- Card 4 -->
+            <div class="flex-shrink-0 bg-white rounded-2xl shadow-md">
+              <img alt="Ancient ruins on a hill" class="w-full h-48 rounded-t-lg" height="180" src="images/places/blogswiper4.png" width="320"/>
+              <div class="absolute top-2 right-2 " >
+                <img src="images/Frame%20321.png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+              </div>
+              <div class="bg-gray-50 p-2">
+                <h3 class="text-lg font-semibold mb-2 text-right" style="cursor: pointer">
+                  بازدید از دخمه‌های زرتشتیان
+                </h3>
+                <div class="flex justify-center">
+                  <p class=" text-sm text-gray-500 mb-2 text-right pl-6" style="cursor: pointer">آژانس مسافرتی مهاپرواز</p>
+                  <span class=" ml-1 text-sm text-gray-600 "> 3.5<i class="fas fa-star text-yellow-500"> </i></span>
+                </div>
+                <div class="flex items-center justify-between mb-2" style="cursor: pointer">
+                  <p class="text-sm text-gray-600">17 - 18 خرداد</p>
+                  <!-- خط جداکننده -->
+                  <div class="border-l border-gray-300 h-6 mx-4"></div> <!-- Line separator -->
+                  <p class="text-sm text-gray-600">تومان <span class="font-[850]"> 1,000,000</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide max-w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-md mb-5">
+            <!-- Card 3 -->
+            <div class="flex-shrink-0 bg-white rounded-2xl shadow-md">
+              <img alt="View of a village with mountains in the background" class="w-full h-48 rounded-t-lg" height="180" src="images/places/blogswiper2.png" width="320"/>
+              <div class="absolute top-2 right-2 " >
+                <img src="images/Frame%20321.png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+              </div>
+              <div class="bg-gray-50 p-2">
+                <h3 class="text-lg font-semibold mb-2 text-right" style="cursor: pointer">
+                  گردش در روستای کندوان
+                </h3>
+                <div class="flex justify-center">
+                  <p class=" text-sm text-gray-500 mb-2 text-right pl-6" style="cursor: pointer">آژانس مسافرتی مهاپرواز</p>
+                  <span class=" ml-1 text-sm text-gray-600 "> 3.5<i class="fas fa-star text-yellow-500"> </i></span>
+                </div>
+                <div class="flex items-center justify-between mb-2" style="cursor: pointer">
+                  <p class="text-sm text-gray-600">17 - 18 خرداد</p>
+                  <!-- خط جداکننده -->
+                  <div class="border-l border-gray-300 h-6 mx-4"></div> <!-- Line separator -->
+                  <p class="text-sm text-gray-600">تومان <span class="font-[850]"> 1,000,000</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide max-w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-md mb-5">
+            <!-- Card 3 -->
+            <div class="flex-shrink-0 bg-white rounded-2xl shadow-md">
+              <img alt="View of a village with mountains in the background" class="w-full h-48 rounded-t-lg" height="180" src="images/places/blogswiper5.png" width="320"/>
+              <div class="absolute top-2 right-2 " >
+                <img src="images/Frame%20321%20(1).png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+              </div>
+              <div class="bg-gray-50 p-2">
+                <h3 class="text-lg font-semibold mb-2 text-right" style="cursor: pointer">
+                  گردش در روستای کندوان
+                </h3>
+                <div class="flex justify-center">
+                  <p class=" text-sm text-gray-500 mb-2 text-right pl-6" style="cursor: pointer">آژانس مسافرتی مهاپرواز</p>
+                  <span class=" ml-1 text-sm text-gray-600 "> 3.5<i class="fas fa-star text-yellow-500"> </i></span>
+                </div>
+                <div class="flex items-center justify-between mb-2" style="cursor: pointer">
+                  <p class="text-sm text-gray-600">17 - 18 خرداد</p>
+                  <!-- خط جداکننده -->
+                  <div class="border-l border-gray-300 h-6 mx-4"></div> <!-- Line separator -->
+                  <p class="text-sm text-gray-600">تومان <span class="font-[850]"> 1,000,000</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide max-w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-md mb-5">
+            <!-- Card 4 -->
+            <div class="flex-shrink-0 bg-white rounded-2xl shadow-md">
+              <img alt="Ancient ruins on a hill" class="w-full h-48 rounded-t-lg" height="180" src="images/places/blogswiper3.png" width="320"/>
+              <div class="absolute top-2 right-2 " >
+                <img src="images/Frame%20321%20(1).png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+              </div>
+              <div class="bg-gray-50 p-2">
+                <h3 class="text-lg font-semibold mb-2 text-right" style="cursor: pointer">
+                  بازدید از دخمه‌های زرتشتیان
+                </h3>
+                <div class="flex justify-center">
+                  <p class=" text-sm text-gray-500 mb-2 text-right pl-6" style="cursor: pointer">آژانس مسافرتی مهاپرواز</p>
+                  <span class=" ml-1 text-sm text-gray-600 "> 3.5<i class="fas fa-star text-yellow-500"> </i></span>
+                </div>
+                <div class="flex items-center justify-between mb-2" style="cursor: pointer">
+                  <p class="text-sm text-gray-600">17 - 18 خرداد</p>
+                  <!-- خط جداکننده -->
+                  <div class="border-l border-gray-300 h-6 mx-4"></div> <!-- Line separator -->
+                  <p class="text-sm text-gray-600">تومان <span class="font-[850]"> 1,000,000</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class=" flex justify-between items-center mt-6">
+        <div class="flex space-x-2 rtl:space-x-reverse">
+          <div id="righttButton" class="swiper-button-prev-cust">
+            <img src="images/Frame%20412%20(1).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+          </div>
+          <div id="lefttButton" class="swiper-button-next-cust">
+            <img src="images/Frame 330 (2).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+          </div>
+        </div>
+        <!-- دکمه نمایش بیشتر -->
+        <button type="button">
+          <img src="images/Frame%20411.png" alt="buttonpng" style="width: 156px; height: 49px; border-radius: 16px" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white text-gray-800">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-2xl font-bold mb-6">گزارش برنامه‌ها</h1>
+      <!-- Swiper Container -->
+      <div class="swiper tourswiper overflow-x-hidden">
+        <div class="swiper-wrapper flex rtl:space-x-reverse" style="display: flex;margin-bottom: auto;height: auto;width: auto; ">
+          <!-- Card 1 -->
+          <div class="swiper-slide relative w-64 flex-shrink-0">
+            <img alt="Family on a beach with a dog" class="w-full h-64 object-cover rounded-2xl" height="377" src="images/places/tourswiper1.png" />
+            <div class="absolute top-2 right-2 " >
+              <img src="images/Frame%20321%20(4).png" alt="water" class="w-4 h-4 m-1" style="height:30px ; width: 108px; top: 4px"/>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white p-2 rounded-b-lg">
+              <p>پیمایش خانوادگی در دریای خزر</p>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="swiper-slide relative w-64 flex-shrink-0">
+            <img alt="Person pointing at a mountain" class="w-full h-64 object-cover rounded-2xl" height="377" src="images/places/tourswiper2.png" />
+            <div class="absolute top-2 right-2 " >
+              <img src="images/Frame%20321.png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white p-2 rounded-b-lg">
+              <p>ماهیگیری در سد سلمان تکه ساری</p>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="swiper-slide relative w-64 flex-shrink-0">
+            <img alt="Two people pointing at a forest" class="w-full h-64 object-cover rounded-2xl" height="377" src="images/places/tourswiper3.png" />
+            <div class="absolute top-2 right-2 " >
+              <img src="images/Frame%20321%20(5).png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white p-2 rounded-b-lg">
+              <p>پیمایش در جنگل‌های هیرکانی شمال</p>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="swiper-slide relative w-64 flex-shrink-0">
+            <img alt="Person with a backpack looking at a canyon" class="w-full h-64 object-cover rounded-2xl" height="377" src="images/places/tourswiper4.png" />
+            <div class="absolute top-2 right-2 " >
+              <img src="images/Frame%20321.png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white p-2 rounded-b-lg">
+              <p>بازدید از مکان‌های تاریخی</p>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="swiper-slide pingo relative w-64 flex-shrink-0">
+            <img alt="Person sitting on a rock by the sea" class="w-full h-64 object-cover rounded-2xl" height="377" src="images/places/tourswiper1.png" />
+            <div class="absolute top-2 right-2 " >
+              <img src="images/Frame%20321.png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+            </div>
+            <div class=" absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white p-2 rounded-b-lg">
+              <p>قایق سواری در سواحل استانبول</p>
+              <br>
+              <div class="overlay flex mt-8 gap-2 items-center">
+                <img src="images/Vector%20(2).png" class="" alt="Rating" style="width: 16px; height: 16px; ">
+                <p class=" mt-0.5 ">3.5</p>
+                <span class=" ml-2"> محمد‌محمدی </span>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide relative w-64 flex-shrink-0">
+            <img alt="Family on a beach with a dog" class="w-full h-64 object-cover rounded-2xl" height="377" src="images/places/tourswiper5.png"/>
+            <div class="absolute top-2 right-2 " >
+              <img src="images/Frame%20321%20(5).png" alt="water" class="w-4 h-4 m-1" style="height: 30px; width: 30px; top: 4px"/>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-50 text-white p-2 rounded-b-lg">
+              <p>پیمایش خانوادگی در دریای خزر</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" flex justify-between items-center mt-6">
+        <div class="flex space-x-2 rtl:space-x-reverse">
+          <div class="swiper-button-prev-custom">
+            <img src="images/Frame%20412%20(1).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+          </div>
+          <div class="swiper-button-next-custom">
+            <img src="images/Frame 330 (2).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+          </div>
+        </div>
+        <!-- دکمه نمایش بیشتر -->
+        <button type="button">
+          <img src="images/Frame%20411.png" alt="buttonpng" style="width: 156px; height: 49px; border-radius: 16px" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="w-full md:w-1/2 mt-8 md:mt-0 md:pl-8 text-right relative">
+          <h2 class="text-2xl font-bold mb-4">گزارش سفر، خاطرات شما</h2>
+          <p class="text-gray-600 mb-6">عاشق سفر به جاهای بکر و نادری؟ یا همیشه در سفری و همه مسیر ها رو بلدی؟ اگر تو هم تجربه داری، همین الان گزارش سفرتو برامون بنویس</p>
+          <img src="images/Group 1632 (1).png" alt="" class=" absolute object-cover w-[300px] h-[500px] bottom-[-96px] md:w-[1229px] md:h-[443px] w-full h-auto "/>
+          <button >
+            <img src="images/Frame%20330%20(1).png" alt="" srcset="" style="  width: 177px;height: 49px;border-radius: 16px;border: 1px solid #ccc;gap: 4px;position: relative;">
+          </button>
+        </div>
+        <div class="w-full md:w-1/2 mt-8 md:mt-0">
+          <img alt="A person with a backpack standing in front of a scenic mountain view with arms raised" class="rounded-2xl shadow-lg w-full h-auto" src="images/places/gozaresh.png"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-100 font-sans">
+    <div class=" container mx-auto p-4">
+      <h1 class="text-2xl font-bold text-gray-800 mb-4 ">فعال‌ترین تیم‌ها</h1>
+      <div class="swiper active overflow-x-hidden">
+        <div class="swiper-wrapper flex rtl:space-x-reverse">
+          <!-- Slide 1: Two Cards -->
+          <div class="swiper-slide">
+            <div class="w-full flex flex-col">
+              <!-- Card 1 -->
+              <div class="w-full flex flex-row gap-x-4">
+                <div class="card w-1/2 rounded-lg shadow-md mb-8 ">
+                  <div class="card-body" > <!-- Added padding-left here -->
+                    <div class="flex items-start">
+                      <img alt="Logo of Parmis Seir Toos" height="50" src="images/places/faall2.png" width="50">
+                      <div>
+                        <h5 class="pr-2 text-lg font-bold text-gray-800">پارمیس سیر توس</h5>
+                        <p>شرکت خدمات مسافرت هوایی و جهانگردی</p> <!-- This is now under the h5 -->
+                      </div>
+                      <div class="flex flex-wrap mr-4">
+                        <div class="w-1/3">
+                          <p>تجربه:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>تعداد سفر:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>شهر مبدا:</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">15سال</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">+500</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">ساری</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="border-t border-gray-300 w-11/12 " style="margin-right: auto; margin-left: auto"></div> <!-- Line separator -->
+                    <div class="flex justify-between mt-2 gap-2 items-center">
+                      <div class="flex mt-2 gap-2 items-center">
+                      <img src="images/Vector%20(2).png" alt="Rating" style="width: 16px; height: 16px;">
+                      <p class="mt-0.5">3.5</p>
+                      <img src="images/Group%201330.png" alt="Logo" style="height: 30px; width: 30px; ">
+                      </div>
+                      <a class="text-teal-500 text-left pb-2" href="#"> مشاهده جزئیات<i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <script>
+                  document.getElementById('heartIcon_o').addEventListener('click', function() {
+                    this.classList.toggle('red');
+                  });
+                </script>
+
+                <!-- Card 2 -->
+                <div class="card w-1/2 rounded-lg shadow-md mb-4 ">
+                  <div class="card-body" > <!-- Added padding-left here -->
+                    <div class="flex items-start">
+                      <img alt="Logo of Parmis Seir Toos" height="50" src="images/places/faall1.png" width="50">
+                      <div>
+                        <h5 class="pr-2 text-lg font-bold text-gray-800">پارمیس سیر توس</h5>
+                        <p>شرکت خدمات مسافرت هوایی و جهانگردی</p> <!-- This is now under the h5 -->
+                      </div>
+                      <div class="flex flex-wrap mr-4">
+                        <div class="w-1/3">
+                          <p>تجربه:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>تعداد سفر:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>شهر مبدا:</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">15سال</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">+500</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">ساری</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="border-t border-gray-300 w-11/12 " style="margin-right: auto; margin-left: auto"></div> <!-- Line separator -->
+                    <div class="flex justify-between mt-2 gap-2 items-center">
+                      <div class="flex mt-2 gap-2 items-center">
+                        <img src="images/Vector%20(2).png" alt="Rating" style="width: 16px; height: 16px;">
+                        <p class="mt-0.5">3.5</p>
+                        <img src="images/Group%201330.png" alt="Logo" style="height: 30px; width: 30px; ">
+                      </div>
+                      <a class="text-teal-500 text-left pb-2" href="#"> مشاهده جزئیات<i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-full flex flex-row gap-x-4">
+                <!-- Card 3 -->
+                <div class="card w-1/2 rounded-lg shadow-md mb-4 ">
+                  <div class="card-body">
+                    <div class="flex items-start">
+                      <img alt="Logo of Parmis Seir Toos" height="50" src="images/places/faall3.png" width="50">
+                      <div>
+                        <h5 class="pr-2 text-lg font-bold text-gray-800">پارمیس سیر توس</h5>
+                        <p>شرکت خدمات مسافرت هوایی و جهانگردی</p> <!-- This is now under the h5 -->
+                      </div>
+                      <div class="flex flex-wrap mr-4">
+                        <div class="w-1/3">
+                          <p>تجربه:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>تعداد سفر:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>شهر مبدا:</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">15سال</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">+500</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">ساری</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="border-t border-gray-300 w-11/12 " style="margin-right: auto; margin-left: auto"></div> <!-- Line separator -->
+                    <div class="flex justify-between mt-2 gap-2 items-center">
+                      <div class="flex mt-2 gap-2 items-center">
+                        <img src="images/Vector%20(2).png" alt="Rating" style="width: 16px; height: 16px;">
+                        <p class="mt-0.5">3.5</p>
+                        <img src="images/Group%201330.png" alt="Logo" style="height: 30px; width: 30px; ">
+                      </div>
+                      <a class="text-teal-500 text-left pb-2" href="#"> مشاهده جزئیات<i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="card w-1/2 rounded-lg shadow-md mb-4 ">
+                  <div class="card-body">
+                    <div class="flex items-start">
+                      <img alt="Logo of Parmis Seir Toos" height="50" src="images/places/faall4.png" width="50">
+                      <div>
+                        <h5 class="pr-2 text-lg font-bold text-gray-800">پارمیس سیر توس</h5>
+                        <p>شرکت خدمات مسافرت هوایی و جهانگردی</p> <!-- This is now under the h5 -->
+                      </div>
+                      <div class="flex flex-wrap mr-4">
+                        <div class="w-1/3">
+                          <p>تجربه:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>تعداد سفر:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>شهر مبدا:</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">15سال</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">+500</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">ساری</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="border-t border-gray-300 w-11/12 " style="margin-right: auto; margin-left: auto"></div> <!-- Line separator -->
+                    <div class="flex justify-between mt-2 gap-2 items-center">
+                      <div class="flex mt-2 gap-2 items-center">
+                        <img src="images/Vector%20(2).png" alt="Rating" style="width: 16px; height: 16px;">
+                        <p class="mt-0.5">3.5</p>
+                        <img src="images/Group%201330.png" alt="Logo" style="height: 30px; width: 30px; ">
+                      </div>
+                      <a class="text-teal-500 text-left pb-2" href="#"> مشاهده جزئیات<i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="w-full flex flex-col">
+              <!-- Card 1 -->
+              <div class="w-full flex flex-row gap-x-4">
+                <div class="card w-1/2 rounded-lg shadow-md mb-4 ">
+                  <div class="card-body">
+                    <div class="flex items-start">
+                      <img alt="Logo of Parmis Seir Toos" height="50" src="images/places/faall1.png" width="50">
+                      <div>
+                        <h5 class="pr-2 text-lg font-bold text-gray-800">پارمیس سیر توس</h5>
+                        <p>شرکت خدمات مسافرت هوایی و جهانگردی</p> <!-- This is now under the h5 -->
+                      </div>
+                      <div class="flex flex-wrap mr-4">
+                        <div class="w-1/3">
+                          <p>تجربه:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>تعداد سفر:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>شهر مبدا:</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">15سال</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">+500</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">ساری</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="border-t border-gray-300 w-11/12 " style="margin-right: auto; margin-left: auto"></div> <!-- Line separator -->
+                    <div class="flex justify-between mt-2 gap-2 items-center">
+                      <div class="flex mt-2 gap-2 items-center">
+                        <img src="images/Vector%20(2).png" alt="Rating" style="width: 16px; height: 16px;">
+                        <p class="mt-0.5">3.5</p>
+                        <img src="images/Group%201330.png" alt="Logo" style="height: 30px; width: 30px; ">
+                      </div>
+                      <a class="text-teal-500 text-left pb-2" href="#"> مشاهده جزئیات<i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card w-1/2 rounded-lg shadow-md mb-4 ">
+                  <div class="card-body">
+                    <div class="flex items-start">
+                      <img alt="Logo of Parmis Seir Toos" height="50" src="images/places/faall2.png" width="50">
+                      <div>
+                        <h5 class="pr-2 text-lg font-bold text-gray-800">پارمیس سیر توس</h5>
+                        <p>شرکت خدمات مسافرت هوایی و جهانگردی</p> <!-- This is now under the h5 -->
+                      </div>
+                      <div class="flex flex-wrap mr-4">
+                        <div class="w-1/3">
+                          <p>تجربه:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>تعداد سفر:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>شهر مبدا:</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">15سال</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">+500</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">ساری</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="border-t border-gray-300 w-11/12 " style="margin-right: auto; margin-left: auto"></div> <!-- Line separator -->
+                    <div class="flex justify-between mt-2 gap-2 items-center">
+                      <div class="flex mt-2 gap-2 items-center">
+                        <img src="images/Vector%20(2).png" alt="Rating" style="width: 16px; height: 16px;">
+                        <p class="mt-0.5">3.5</p>
+                        <img src="images/Group%201330.png" alt="Logo" style="height: 30px; width: 30px; ">
+                      </div>
+                      <a class="text-teal-500 text-left pb-2" href="#"> مشاهده جزئیات<i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-full flex flex-row gap-x-4">
+                <!-- Card 3 -->
+                <div class="card w-1/2 rounded-lg shadow-md mb-4 ">
+                  <div class="card-body">
+                    <div class="flex items-start">
+                      <img alt="Logo of Parmis Seir Toos" height="50" src="images/places/faall3.png" width="50">
+                      <div>
+                        <h5 class="pr-2 text-lg font-bold text-gray-800">پارمیس سیر توس</h5>
+                        <p>شرکت خدمات مسافرت هوایی و جهانگردی</p> <!-- This is now under the h5 -->
+                      </div>
+                      <div class="flex flex-wrap mr-4">
+                        <div class="w-1/3">
+                          <p>تجربه:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>تعداد سفر:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>شهر مبدا:</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">15سال</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">+500</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">ساری</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="border-t border-gray-300 w-11/12 " style="margin-right: auto; margin-left: auto"></div> <!-- Line separator -->
+                    <div class="flex justify-between mt-2 gap-2 items-center">
+                      <div class="flex mt-2 gap-2 items-center">
+                        <img src="images/Vector%20(2).png" alt="Rating" style="width: 16px; height: 16px;">
+                        <p class="mt-0.5">3.5</p>
+                        <img src="images/Group%201330.png" alt="Logo" style="height: 30px; width: 30px; ">
+                      </div>
+                      <a class="text-teal-500 text-left pb-2" href="#"> مشاهده جزئیات<i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card w-1/2 rounded-lg shadow-md mb-4 ">
+                  <div class="card-body">
+                    <div class="flex items-start">
+                      <img alt="Logo of Parmis Seir Toos" height="50" src="images/places/faall4.png" width="50">
+                      <div>
+                        <h5 class="pr-2 text-lg font-bold text-gray-800">پارمیس سیر توس</h5>
+                        <p>شرکت خدمات مسافرت هوایی و جهانگردی</p> <!-- This is now under the h5 -->
+                      </div>
+                      <div class="flex flex-wrap mr-4">
+                        <div class="w-1/3">
+                          <p>تجربه:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>تعداد سفر:</p>
+                        </div>
+                        <div class="w-1/3">
+                          <p>شهر مبدا:</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">15سال</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">+500</p>
+                        </div>
+                        <div class="w-1/3 mt-2">
+                          <p class="font-bold">ساری</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="border-t border-gray-300 w-11/12 " style="margin-right: auto; margin-left: auto"></div> <!-- Line separator -->
+                    <div class="flex justify-between mt-2 gap-2 items-center">
+                      <div class="flex mt-2 gap-2 items-center">
+                        <img src="images/Vector%20(2).png" alt="Rating" style="width: 16px; height: 16px;">
+                        <p class="mt-0.5">3.5</p>
+                        <img src="images/Group%201330.png" alt="Logo" style="height: 30px; width: 30px; ">
+                      </div>
+                      <a class="text-teal-500 text-left pb-2" href="#"> مشاهده جزئیات<i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation buttons -->
+      <div class="flex justify-between items-center mt-6">
+        <div class="flex space-x-2 rtl:space-x-reverse">
+          <div id="right" class="swiper-button-prev-cu">
+            <img src="images/Frame%20412%20(1).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px;">
+          </div>
+          <div id="left" class="swiper-button-next-cu">
+            <img src="images/Frame 330 (2).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px;">
+          </div>
+        </div>
+        <!-- Show more button -->
+        <button type="button">
+          <img src="images/Frame%20411.png" alt="buttonpng" style="width: 156px; height: 49px; border-radius: 16px;">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-teal-800 text-white font-sans ">
+    <div class="container mx-auto ">
+      <h1 class="text-2xl font-bold mb-4 pt-2 ">جدیدترین کالاها</h1>
+      <div class="swiper sells overflow-x-hidden">
+        <div class="swiper-wrapper flex rtl:space-x-reverse" style="height: auto; width: auto; margin-bottom: auto">
+          <!-- Card 1 -->
+          <div class="swiper-slide bg-white text-black rounded-2xl shadow-md p-4 relative">
+            <div class="absolute">
+              <img src="images/Group%201329.png" alt="" style="width: 30px; height: 30px; top: 8px; left: 993px">
+            </div>
+            <img alt="کفش کوهنوردی" class=" h-40 object-cover mb-4" height="200" src="images/places/sells4.png" width="200" style="margin-left: auto; margin-right: auto; height: 172px; width: 96px"/>
+            <div class="flex justify-between">
+              <h2 class="text-lg font-semibold mb-2">فلاسک هوشمند</h2>
+              <div class="flex items-center mb-2">
+                <span > 3.5 </span>
+                <i class="fas fa-star text-yellow-500"> </i>
+              </div>
+            </div>
+            <div class="w-full h-[2px] bg-gray-50 mt-1"></div>
+            <div class="flex justify-between items-center mt-2.5">
+              <span class="text-gray-500"> تن زیپ</span>
+              <span class="text-gray-500"> 1,000,000 تومان </span>
+            </div>
+          </div>
+          <!--      card 3-->
+          <div class="swiper-slide bg-white text-black rounded-2xl shadow-md p-4 relative ">
+            <div class="absolute">
+              <img src="images/Group%201329.png" alt="" style="width: 30px; height: 30px; top: 8px; left: 993px">
+            </div>              <img alt=" عصای کوهنوردی" class=" h-40 object-cover mb-4" height="200" src="images/places/sells3.png" width="200" style="margin-left: auto; margin-right: auto; height: 172px; width: 96px"/>
+            <div class="flex justify-between">
+              <h2 class="text-lg font-semibold mb-2">عصای کوهنوردی</h2>
+              <div class="flex items-center mb-2">
+                <span > 3.5 </span>
+                <i class="fas fa-star text-yellow-500"> </i>
+              </div>
+            </div>
+            <div class="w-full h-[2px] bg-gray-50 mt-1"></div>
+            <div class="flex justify-between items-center mt-2.5">
+              <span class="text-gray-500"> تن زیپ</span>
+              <span class="text-gray-500"> 1,000,000 تومان </span>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="swiper-slide bg-white text-black rounded-2xl shadow-md p-4 relative ">
+            <div class="absolute">
+              <img src="images/Group%201329.png" alt="" style="width: 30px; height: 30px; top: 8px; left: 993px">
+            </div>
+            <img alt="کفش کوهنوردی" class=" h-40 object-cover mb-4" height="200" src="images/places/sells4.png" width="200" style="margin-left: auto; margin-right: auto; height: 172px; width: 96px" />
+            <div class="flex justify-between">
+              <h2 class="text-lg font-semibold mb-2">فلاسک هوشمند</h2>
+              <div class="flex items-center mb-2">
+                <span > 3.5 </span>
+                <i class="fas fa-star text-yellow-500"> </i>
+              </div>
+            </div>
+            <div class="w-full h-[2px] bg-gray-50 mt-1"></div>
+            <div class="flex justify-between items-center mt-2.5">
+              <span class="text-gray-500"> تن زیپ</span>
+              <span class="text-gray-500"> 1,000,000 تومان </span>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="swiper-slide bg-white text-black rounded-2xl shadow-md p-4 relative ">
+            <div class="absolute">
+              <img src="images/Group%201329.png" alt="" style="width: 30px; height: 30px; top: 8px; left: 993px">
+            </div>
+            <img alt="کوله پشتی کوهنوردی 75 لیتری " class=" h-40 object-cover mb-4" height="200" src="images/places/sells5.png" width="200" style="margin-left: auto; margin-right: auto; height: 172px; width: 96px"/>
+            <div class="flex justify-between">
+              <h2 class="text-lg font-semibold mb-2">کوله‌پشتی </h2>
+              <div class="flex items-center mb-2">
+                <span > 3.5 </span>
+                <i class="fas fa-star text-yellow-500"> </i>
+              </div>
+            </div>
+            <div class="w-full h-[2px] bg-gray-50 mt-1"></div>
+            <div class="flex justify-between items-center mt-2.5">
+              <span class="text-gray-500"> تن زیپ</span>
+              <span class="text-gray-500"> 1,000,000 تومان </span>
+            </div>
+          </div>
+          <!-- Card 1 -->
+          <div class="swiper-slide bg-white text-black rounded-2xl shadow-md p-4 relative ">
+            <div class="absolute">
+              <img src="images/Group%201329.png" alt="" style="width: 30px; height: 30px; top: 8px; left: 993px">
+            </div>
+            <img alt="کفش کوهنوردی" class=" h-40 object-cover mb-4" height="200" src="images/places/sells2.png" width="200" style="margin-left: auto; margin-right: auto; height: 172px; width: 183px; top: 9px"/>
+            <div class="flex justify-between">
+              <h2 class="text-lg font-semibold mb-2">کفش کوهنوردی</h2>
+              <div class="flex items-center mb-2">
+                <span > 3.5 </span>
+                <i class="fas fa-star text-yellow-500"> </i>
+              </div>
+            </div>
+            <div class="w-full h-[2px] bg-gray-50 mt-1"></div>
+            <div class="flex justify-between items-center mt-2.5">
+              <span class="text-gray-500"> تن زیپ</span>
+              <span class="text-gray-500"> 1,000,000 تومان </span>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div  class="swiper-slide bg-white text-black rounded-2xl shadow-md p-4 relative ">
+            <div class="absolute">
+              <img src="images/Group%201329.png" alt="" style="width: 30px; height: 30px; top: 8px; left: 993px">
+            </div>
+            <img alt=" کیسه خواب " class=" h-40 object-cover mb-4" height="200" src="images/places/sells1.png" width="200" style="margin-left: auto; margin-right: auto; height: 171px; width: 171px"/>
+            <div class="flex justify-between">
+              <h2 class="text-lg font-semibold mb-2">کیسه خواب</h2>
+              <div class="flex items-center mb-2">
+                <span > 3.5 </span>
+                <i class="fas fa-star text-yellow-500"> </i>
+              </div>
+            </div>
+            <div class="w-full h-[2px] bg-gray-50 mt-1"></div>
+            <div class="flex justify-between items-center mt-2.5">
+              <span class="text-gray-500"> تن زیپ</span>
+              <span class="text-gray-500"> 1,000,000 تومان </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- button -->
+      <div class=" flex justify-between items-center mt-6">
+        <div class="flex space-x-2 rtl:space-x-reverse">
+          <div id="rightB" class="swiper-button-prev-c">
+            <img src="images/Frame%20412%20(1).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+          </div>
+          <div id="leftB" class="swiper-button-next-c">
+            <img src="images/Frame 330 (2).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+          </div>
+        </div>
+        <!-- دکمه نمایش بیشتر -->
+        <button type="button">
+          <img src="images/Frame%20411.png" alt="buttonpng" style="width: 156px; height: 49px; border-radius: 16px" />
+        </button>
+      </div>
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+
+  <div class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold mb-8">بلاگ</h1>
+      <div class="swiper mainblog">
+        <div class="swiper-wrapper" style="display: flex;margin-bottom: auto;height: auto;width: auto;object-fit: cover;">
+          <!-- Card 1 -->
+          <div class="swiper-slide bg-white rounded-2xl shadow-md overflow-hidden">
+            <img alt="A person climbing a rock" class="w-full h-48 object-cover" height="400" src="images/places/mainblog1.png" width="600"/>
+            <div class="p-4">
+              <div class="text-gray-500 text-sm mb-2">16 فروردین 1403</div>
+              <h2 class="text-lg font-bold mb-2">
+                راهنمای کاربردی انتخاب و خرید پوشاک کوهنورد...
+              </h2>
+              <p class="text-gray-700 mb-4">
+                اهمیت پوشاک کوهنوردی مناسب در کمپینگ و کوهنوردی بسیار مهم است.
+                در این مقاله به نکاتی برای انتخاب و خرید پوشاک مناسب پرداخته
+                شده است
+              </p>
+              <hr>
+              <br>
+              <div class="flex items-center justify-between">
+                <a class="flex-col text-teal-500 text-left pb-2" href="#">  ادامه‌مطلب <i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                <div class="flex items-center ml-1">
+                  <span class="text-gray-700"> محمد‌محمدی </span>
+                  <img alt="Author's avatar" class="w-8 h-8 rounded-full mr-2" height="32" src="images/places/bigman.jpg" width="32"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="swiper-slide bg-white rounded-2xl shadow-md overflow-hidden" style="object-fit: cover">
+            <img alt="A flashlight on a log" class="w-full h-48 object-cover" height="400" src="images/places/mainblog2.png" width="600"/>
+            <div class="p-4">
+              <div class="text-gray-500 text-sm mb-2">16 فروردین 1403</div>
+              <h2 class="text-lg font-bold mb-2">
+                راهنمای کاربردی انتخاب و خرید پوشاک کوهنورد...
+              </h2>
+              <p class="text-gray-700 mb-4">
+                اهمیت پوشاک کوهنوردی مناسب در کمپینگ و کوهنوردی بسیار مهم است.
+                در این مقاله به نکاتی برای انتخاب و خرید پوشاک مناسب پرداخته
+                شده است
+              </p>
+              <hr>
+              <br>
+              <div class="flex items-center justify-between">
+                <a class="text-teal-500 text-left pb-2" href="#">  ادامه‌مطلب <i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                <div class="flex items-center ml-1">
+                  <span class="text-gray-700"> محمد‌محمدی </span>
+                  <img alt="Author's avatar" class="w-8 h-8 rounded-full mr-2" height="32" src="images/places/bigman.jpg" width="32"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="swiper-slide bg-white rounded-2xl shadow-md overflow-hidden">
+            <img alt="A person wearing a mask on public transport" class="w-full h-48 object-cover" height="400" src="images/places/mainblog3.png" width="600"/>
+            <div class="p-4">
+              <div class="text-gray-500 text-sm mb-2">16 فروردین 1403</div>
+              <h2 class="text-lg font-bold mb-2">
+                چگونه از ابتلا به بیماری در سفر پیشگیری کنیم...
+              </h2>
+              <p class="text-gray-700 mb-4">در این مقاله نکاتی برای پیشگیری از ابتلا به بیماری در سفر ارائه شده است. این نکات توسط CDC (مرکز کنترل و پیشگیری بیماری‌ها) و سایر منابع معتبر ارائه شده‌اند.
+              </p>
+              <hr>
+              <br>
+              <div class="flex items-center justify-between">
+                <a class="text-teal-500 text-left pb-2" href="#">  ادامه‌مطلب <i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                <div class="flex items-center ml-1">
+                  <span class="text-gray-700"> محمد‌محمدی </span>
+                  <img alt="Author's avatar" class="w-8 h-8 rounded-full mr-2" height="32" src="images/places/bigman.jpg" width="32"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="swiper-slide bg-white rounded-2xl shadow-md overflow-hidden">
+            <img alt="Various outdoor jackets and gear" class="w-full h-48 object-cover" height="400" src="images/places/mainblog4.png" width="600"/>
+            <div class="p-4">
+              <div class="text-gray-500 text-sm mb-2">16 فروردین 1403</div>
+              <h2 class="text-lg font-bold mb-2">راهنمای کاربردی انتخاب و خرید پوشاک کوهنورد...</h2>
+              <p class="text-gray-700 mb-4">اهمیت پوشاک کوهنوردی مناسب در کمپینگ و کوهنوردی بسیار مهم است. در این مقاله به نکاتی برای انتخاب و خرید پوشاک مناسب پرداخته شده است.</p>
+              <hr>
+              <br>
+              <div class="flex items-center justify-between">
+                <a class="text-teal-500 text-left pb-2" href="#">  ادامه‌مطلب <i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                <div class="flex items-center ml-1">
+                  <span class="text-gray-700"> محمد‌محمدی </span>
+                  <img alt="Author's avatar" class="w-8 h-8 rounded-full mr-2" height="32" src="images/places/bigman.jpg" width="32"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="swiper-slide bg-white rounded-2xl shadow-md overflow-hidden">
+            <img alt="A person wearing a mask on public transport" class="w-full h-48 object-cover" height="400" src="images/places/mainblog3.png" width="600"/>
+            <div class="p-4">
+              <div class="text-gray-500 text-sm mb-2">16 فروردین 1403</div>
+              <h2 class="text-lg font-bold mb-2">چگونه از ابتلا به بیماری در سفر پیشگیری کنیم...</h2>
+              <p class="text-gray-700 mb-4">در این مقاله نکاتی برای پیشگیری از ابتلا به بیماری در سفر ارائه شده است. این نکات توسط CDC (مرکز کنترل و پیشگیری بیماری‌ها) و سایر منابع معتبر ارائه شده‌اند.</p>
+              <hr>
+              <br>
+              <div class="flex items-center justify-between">
+                <a class="text-teal-500 text-left pb-2" href="#">  ادامه‌مطلب <i class="fas fa-chevron-left mr-1 mt-2 text-teal-500"></i></a>
+                <div class="flex items-center ml-1">
+                  <span class="text-gray-700"> محمد‌محمدی </span>
+                  <img alt="Author's avatar" class="w-8 h-8 rounded-full mr-2" height="32" src="images/places/bigman.jpg" width="32"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" flex justify-between items-center mt-6">
+        <div class="flex space-x-2 rtl:space-x-reverse">
+          <div id="rightBn" class="swiper-button-prev-cus">
+            <img src="images/Frame%20412%20(1).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+          </div>
+          <div id="leftBn" class="swiper-button-next-cus">
+            <img src="images/Frame 330 (2).png" alt="buttonpng" style="width: 49px; height: 49px; border-radius: 16px" />
+          </div>
+        </div>
+        <!-- دکمه نمایش بیشتر -->
+        <button type="button">
+          <img src="images/Frame%20411.png" alt="buttonpng" style="width: 156px; height: 49px; border-radius: 16px" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="container mx-auto px-4">
+      <h1 class="text-center text-2xl font-bold mb-8">نظرات کاربران</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <div class="flex items-start">
+            <i class="fas fa-quote-right text-teal-500 text-2xl"></i>
+            <div class="ml-4">
+              <h2 class="text-lg font-bold">محمد‌محمدی</h2>
+              <p class="text-sm text-gray-500">
+                لیدر کوهنوردی آژانس مهاپرواز
+              </p>
+              <hr />
+              <p class="mt-2 text-gray-700">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <div class="flex items-start">
+            <i class="fas fa-quote-right text-teal-500 text-2xl"></i>
+            <div class="ml-4">
+              <h2 class="text-lg font-bold">محمد‌محمدی</h2>
+              <p class="text-sm text-gray-500">لیدر کوهنوردی آژانس مهاپرواز</p>
+              <hr />
+              <p class="mt-2 text-gray-700">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <div class="flex items-start">
+            <i class="fas fa-quote-right text-teal-500 text-2xl"></i>
+            <div class="ml-4">
+              <h2 class="text-lg font-bold">محمد‌محمدی</h2>
+              <p class="text-sm text-gray-500">لیدر کوهنوردی آژانس مهاپرواز</p>
+              <hr />
+              <p class="mt-2 text-gray-700">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <div class="flex items-start">
+            <i class="fas fa-quote-right text-teal-500 text-2xl"></i>
+            <div class="ml-4 opacity-45">
+              <h2 class="text-lg font-bold">محمد‌محمدی</h2>
+              <p class="text-sm text-gray-500">
+                لیدر کوهنوردی آژانس مهاپرواز
+              </p>
+              <hr />
+              <p class="mt-2 text-gray-700">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت...</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <div class="flex items-start">
+            <i class="fas fa-quote-right text-teal-500 text-2xl"></i>
+            <div class="ml-4 opacity-45">
+              <h2 class="text-lg font-bold">محمد‌محمدی</h2>
+              <p class="text-sm text-gray-500">
+                لیدر کوهنوردی آژانس مهاپرواز
+              </p>
+              <hr />
+              <p class="mt-2 text-gray-700">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <div class="flex items-start">
+            <i class="fas fa-quote-right text-teal-500 text-2xl"></i>
+            <div class="ml-4 opacity-45">
+              <h2 class="text-lg font-bold">محمد‌محمدی</h2>
+              <p class="text-sm text-gray-500">
+                لیدر کوهنوردی آژانس مهاپرواز
+              </p>
+              <hr />
+              <p class="mt-2 text-gray-700">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <p class="text-gray-500">+120 نفر دیگر</p>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-100 text-gray-800">
+    <header class="py-4" style="background-color: #e2e2e2">
+      <div class="container mx-auto flex justify-center space-x-4">
+        <div  style="margin-left: 18px; border-radius: 8px">
+          <img src="images/Frame%20422.png" alt="" srcset="" style="width: 268px;height: 46px;margin-left: auto;border-radius: 8px; gap: 17px"/>
+        </div>
+        <div  style="border-radius: 8px">
+          <img src="images/Frame%20423.png" alt="" srcset="" style="width: 268px;height: 46px;margin-left: auto;border-radius: 8px; gap: 17px"/>
+        </div>
+        <div  style="border-radius: 8px">
+          <img src="images/Frame%20421.png" alt="" srcset="" style="width: 268px;height: 46px;margin-left: auto;border-radius: 8px; gap: 17px"/>
+        </div>
+      </div>
+    </header>
+
+    <nav class="footer flex  gap-6 py-4 overflow-hidden" style="border: 1px solid #ffffff; text-align: center; background-color: #e2e2e2;">
+      <img alt="Climber Logo" height="50" src="images/places/climberlogo.png" width="100" style="width: 117px; height: 25px" />
+      <ul class="flex justify-center space-x-4 mx-auto">
+        <li><a class="text-gray-600" href="#">خانه</a></li>
+        <li><a></a></li>
+        <li><a class="text-gray-600" href="#">تور‌ها</a></li>
+        <li><a class="text-gray-600" href="#">نقشه</a></li>
+        <li><a class="text-gray-600" href="#">امکان</a></li>
+        <li><a class="text-gray-600" href="#">گزارش برنامه</a></li>
+        <li><a class="text-gray-600" href="#">تیم‌ها</a></li>
+        <li><a class="text-gray-600" href="#">فروشگاه</a></li>
+        <li><a class="text-gray-600" href="#">بلاگ</a></li>
+      </ul>
+      <div>
+        <div class="container mx-auto flex justify-between items-center">
+          <div class="flex space-x-4">
+            <img src="images/Frame 375.png" alt="" srcset="" style="width: 82px; height: 17px; gap: 16px; margin-left: 20px; cursor: pointer;" />
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex py-8" style="background-color: #e2e2e2">
+      <div class="flex container mx-auto text-right">
+        <!-- Heading and Lorem Ipsum Text (Vertically stacked) -->
+        <div class="flex flex-col items-start space-y-4 mb-4">
+          <!-- Heading -->
+          <p class="text-xl mb-4">چرا کوهنورد؟</p>
+          <!-- Lorem Ipsum content -->
+          <p class="text-gray-600" style="max-width: 814px; height: 143px; text-align: right;">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی
+            نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است لورم ایپسوم
+            متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+            طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+            صنعت چاپ و با استفاده از طراحان گرافیک
+          </p>
+        </div>
+        <div class="flex flex-col items-end space-y-4 mb-4 justify-end">
+          <!-- Phone Numbers -->
+          <div class="flex flex-col items-end space-y-2">
+            <div class="flex items-center space-x-3 mr-2 cursor-pointer">
+              <img src="images/Vector (1).png" alt="phone icon" style="width: 19px; height: 19px;" />
+              <span>09876543210</span>
+              <span>09876543210</span>
+            </div>
+          </div>
+          <!-- Second Lorem Ipsum (to be placed below numbers) -->
+          <p class="text-left flex items-center justify-between">
+            <img src="images/Group.png" alt="" style="width: 13px; height: 20px; border: 1px; margin-left: 8px" />
+            <span>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ وبااستفاده از طراحان</span>
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
+
